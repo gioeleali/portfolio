@@ -2,23 +2,23 @@ vCard - Personal Portfolio
 
 # sidebar
 
-alt = Richard hanrick
-Richard hanrick
-Web developer
+alt = Gioele Alì
+Gioele Alì
+Junior Software Developer
 
 Show Contacts
 
 Email
-richard@example.com
+gioeleali2001@gmail.com
 
 Phone
-+1 (213) 352-2795
++39 342-668-5681
 
 Birthday
-June 23, 1982
+November 24, 2001
 
 Location
-Sacramento, California, USA
+Pisa, Tuscany, Italy
 
 # navbar
 
