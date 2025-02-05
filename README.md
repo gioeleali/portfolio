@@ -14,4 +14,4 @@ Visit the site to explore my work, view projects, and contact me directly throug
 
 ## License  
 
-For licensing details, please refer to the [MIT License of CodewithSadee](https://github.com/codewithsadee/vcard-personal-portfolio/blob/main/LICENSE).
+For licensing details, please refer to the [MIT License of CodewithSadee](https://github.com/codewithsadee/vcard-personal-portfolio/blob/master/LICENSE).
