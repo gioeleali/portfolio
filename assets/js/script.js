@@ -147,21 +147,28 @@ document.addEventListener("DOMContentLoaded", function () {
       fetch(form.action, {
           method: form.method,
           body: formData,
-          headers: { "Accept": "application/json" }
-      })
-      .then(response => response.json()) // Leggiamo la risposta JSON
-      .then(data => {
-          if (data.ok) {
-              form.reset(); // Svuota i campi del form
-              confirmationMessage.style.display = "block"; // Mostra il messaggio di conferma
-              setTimeout(() => { confirmationMessage.style.display = "none"; }, 5000); // Nasconde il messaggio dopo 5 secondi
-          } else {
-              alert("Errore nell'invio del messaggio. Riprova più tardi.");
+          headers: {
+              "Accept": "application/json"
           }
       })
-      .catch(() => alert("Errore di connessione."));
+      .then(response => {
+          if (response.ok) {
+              return response.json(); // Leggiamo la risposta JSON
+          } else {
+              throw new Error("Errore nell'invio del messaggio.");
+          }
+      })
+      .then(() => {
+          form.reset(); // Svuota i campi del form
+          confirmationMessage.style.display = "block"; // Mostra il messaggio di conferma
+          setTimeout(() => { confirmationMessage.style.display = "none"; }, 5000); // Nasconde il messaggio dopo 5 secondi
+      })
+      .catch(() => {
+          alert("Errore di connessione. Riprova più tardi.");
+      });
   });
 });
+
 
 
 
