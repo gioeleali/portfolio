@@ -135,6 +135,34 @@ for (let i = 0; i < formInputs.length; i++) {
 }
 
 
+document.addEventListener("DOMContentLoaded", function () {
+  const form = document.getElementById("contact-form");
+  const confirmationMessage = document.getElementById("confirmation-message");
+
+  form.addEventListener("submit", function (event) {
+      event.preventDefault(); // Evita il refresh della pagina
+
+      const formData = new FormData(form);
+
+      fetch(form.action, {
+          method: form.method,
+          body: formData,
+          headers: { "Accept": "application/json" }
+      })
+      .then(response => {
+          if (response.ok) {
+              form.reset(); // Svuota i campi del form
+              confirmationMessage.style.display = "block"; // Mostra il messaggio
+              setTimeout(() => { confirmationMessage.style.display = "none"; }, 5000); // Nasconde dopo 5 secondi
+          } else {
+              alert("Errore nell'invio del messaggio. Riprova più tardi.");
+          }
+      })
+      .catch(() => alert("Errore di connessione."));
+  });
+});
+
+
 
 // page navigation variables
 const navigationLinks = document.querySelectorAll("[data-nav-link]");
