@@ -149,11 +149,12 @@ document.addEventListener("DOMContentLoaded", function () {
           body: formData,
           headers: { "Accept": "application/json" }
       })
-      .then(response => {
-          if (response.ok) {
+      .then(response => response.json()) // Leggiamo la risposta JSON
+      .then(data => {
+          if (data.ok) {
               form.reset(); // Svuota i campi del form
-              confirmationMessage.style.display = "block"; // Mostra il messaggio
-              setTimeout(() => { confirmationMessage.style.display = "none"; }, 5000); // Nasconde dopo 5 secondi
+              confirmationMessage.style.display = "block"; // Mostra il messaggio di conferma
+              setTimeout(() => { confirmationMessage.style.display = "none"; }, 5000); // Nasconde il messaggio dopo 5 secondi
           } else {
               alert("Errore nell'invio del messaggio. Riprova più tardi.");
           }
@@ -161,6 +162,7 @@ document.addEventListener("DOMContentLoaded", function () {
       .catch(() => alert("Errore di connessione."));
   });
 });
+
 
 
 
