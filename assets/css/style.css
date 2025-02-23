@@ -125,7 +125,14 @@
   box-sizing: border-box;
 }
 
-a { text-decoration: none; }
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
 
 li { list-style: none; }
 
